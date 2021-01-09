@@ -41,11 +41,21 @@ const movies = [
 
 const App = () =>{
     const [movieList, setMovieList] = useState(movies)
+    const handleSearch = (text) =>{
+      const newText = text.target.value.toUpperCase()
+      const filteredMovie = movies.filter((movie)=>{
+        const newMovie = movie.name.toUpperCase()
+        if(newMovie.includes(newText)){
+          return movie
+        }
+      })
+      setMovieList(filteredMovie)
+    }
     return(
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <SearchBar />
+                    <SearchBar handleSearch = {handleSearch} />
                 </div>
             </div>
             <MovieList movieList={movieList} />
