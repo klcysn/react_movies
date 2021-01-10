@@ -5,6 +5,7 @@ import axios from "axios"
 
 const App = () =>{
     const [movieList, setMovieList] = useState()
+    const [searchText, setSearchText] = useState()
     const {REACT_APP_API_TMDB_KEY} = process.env
     const fetchMovie = async () =>{
       const {data:{results}} = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${REACT_APP_API_TMDB_KEY}&language=en-US&page=1`)
@@ -12,25 +13,22 @@ const App = () =>{
     }
 
     useEffect(()=>{
-      fetchMovie()
-    }, [])
+      if (searchText){
+        handleSearch(searchText)
+      } else{
+        fetchMovie()
+      }
+    }, [searchText])
 
-    const handleSearch = (text) =>{
-      const newText = text.target.value.toUpperCase()
-      const movies = [...movieList]
-      const filteredMovie = movies.filter((movie)=>{
-        const newMovie = movie.name.toUpperCase()
-        if(newMovie.includes(newText)){
-          return movie
-        }
-      })
-      setMovieList(filteredMovie)
+    const handleSearch = async (text) =>{
+      const {data:{results}} = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_API_TMDB_KEY}&query=${text}`)
+      setMovieList(results)
     }
     return(
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <SearchBar handleSearch = {handleSearch} />
+                    <SearchBar handleSearch = {(text) => setSearchText(text.target.value)} />
                 </div>
             </div>
             {
