@@ -5,9 +5,9 @@ const MovieList = ({movieList}) =>{
     return(
         <div className="d-flex flex-wrap justify-content-around">
            {
-           movieList.map((movie)=>{
+           movieList?.map((movie)=>{
                return(
-                   <MovieCard movie={movie} key={movie.id} />
+                   <MovieCard movie={movie} key={movie?.id} />
                )
             })
             }
