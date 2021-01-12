@@ -22,6 +22,7 @@ const App = () =>{
 
     const handleSearch = async (text) =>{
       const {data:{results}} = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_API_TMDB_KEY}&query=${text}`)
+      console.log(results)
       setMovieList(results)
     }
     return(
