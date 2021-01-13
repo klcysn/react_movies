@@ -11,7 +11,7 @@ const ReactApp = () =>{
     return(
         <Router>
           <Switch>
-            <Route path="/detail/:id" component={Detail}/>
+            <Route path="/detail/:id" component={Detail} exact/>
             <Route path="/" component={App}/>
           </Switch>
       </Router>
