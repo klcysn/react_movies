@@ -23,8 +23,8 @@ const SimilarMovies = () =>{
     return(
         similar.map((item)=>{
             return(
-            <div className="col-2" onClick={()=>history.push(`/detail/${item.id}`)} style={{cursor:"pointer"}}>
-                <div className="card">
+            <div className="col-2 mb-2" onClick={()=>history.push(`/detail/${item.id}`)} style={{cursor:"pointer"}}>
+                <div className="card h-100">
                     <img src={item?.poster_path ? `https://image.tmdb.org/t/p/w500${item?.poster_path}` : "/logo512.png"} className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{item.title}</h5>
@@ -63,7 +63,7 @@ const SimilarMovies = () =>{
                     <button className="btn btn-primary col-12 m-0" type="button" onClick={getList}>Go Back to Movie List</button>
                 </div>
                 {similar.length ? <h5 className="card-title text-center">Similar Movies</h5> : null}
-                <div class="row cols-3 g-4">
+                <div class="row cols-3 row-cols-md-6 g-4">
                     <SimilarMovies />
                 </div>
             </div>
