@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import App from "./components/App"
+import RouterApp from "./RouterApp"
 import "bootstrap/dist/css/bootstrap.min.css"
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<RouterApp />, document.getElementById("root"))
