@@ -12,7 +12,7 @@ const MovieCard = ({movie}) =>{
     return(
                 <>
                     { show &&
-                        <div className="card mb-4 shadow-sm col-lg-3 col-md-4 ml-1" onClick={getDetail}>
+                        <div className="card mb-4 shadow-sm col-lg-3 col-md-4 ml-1" onClick={getDetail} style={{cursor:"pointer"}}>
                         <img className="card-img-top" src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "/logo512.png"} alt="" />
                         <div className="card-body">
                             <h5 className="card-title">{movie?.title}</h5>

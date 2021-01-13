@@ -10,7 +10,6 @@ const [similar, setSimilar] = useState()
 const fetchDetail = async () =>{
     const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_TMDB_KEY}&language=en-US`)
     const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_API_TMDB_KEY}&language=en-US&page=1`)
-    console.log(response.data.results)
     setSimilar(response.data.results)
     setDetail(data)
 }
@@ -24,11 +23,11 @@ const SimilarMovies = () =>{
     return(
         similar.map((item)=>{
             return(
-            <div class="col-3">
-                <div class="card">
-                    <img src={item?.poster_path ? `https://image.tmdb.org/t/p/w500${item?.poster_path}` : "/logo512.png"} class="card-img-top" alt="..."/>
-                    <div class="card-body">
-                        <h5 class="card-title">{item.title}</h5>
+            <div className="col-2" onClick={()=>history.push(`/detail/${item.id}`)} style={{cursor:"pointer"}}>
+                <div className="card">
+                    <img src={item?.poster_path ? `https://image.tmdb.org/t/p/w500${item?.poster_path}` : "/logo512.png"} className="card-img-top" alt="..."/>
+                    <div className="card-body">
+                        <h5 className="card-title">{item.title}</h5>
                     </div>
                 </div>
             </div>
@@ -50,9 +49,9 @@ const SimilarMovies = () =>{
                         <div className="card-body">
                             <h5 className="card-title">{detail?.title}</h5>
                             <a href={detail?.homepage} className="link-secondary">Visit Official website</a>
-                            <p className="card-text"><strong>Company:</strong> {detail?.production_companies[0].name}</p>
-                            <p className="card-text"><strong>Country:</strong> {detail?.production_countries[0].name}</p>
-                            <p className="card-text"><strong>Language:</strong> {detail?.spoken_languages[0].name}</p>
+                            <p className="card-text"><strong>Company:</strong> {detail?.production_companies[0]?.name}</p>
+                            <p className="card-text"><strong>Country:</strong> {detail?.production_countries[0]?.name}</p>
+                            <p className="card-text"><strong>Language:</strong> {detail?.spoken_languages[0]?.name}</p>
                             <p className="card-text"><strong>Date:</strong> {detail?.release_date}</p>
                             <p className="card-text"><strong>Rating:</strong> <span className="badge bg-info fs-3">{detail?.vote_average}</span></p>
                             <p className="card-text"><strong>{detail?.tagline}</strong></p>
