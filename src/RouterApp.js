@@ -6,12 +6,16 @@ import {
 
 import Detail from "./components/Detail"
 import App from "./components/App"
+import Navbar from "./components/Navbar"
+import Form from "./components/Form"
 
 const ReactApp = () =>{
     return(
         <Router>
+          <Navbar/>
           <Switch>
             <Route path="/detail/:id" component={Detail} exact/>
+            <Route path = "/contact" component={Form} exact />
             <Route path="/" component={App}/>
           </Switch>
       </Router>
