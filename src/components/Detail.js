@@ -40,20 +40,20 @@ const SimilarMovies = () =>{
            
             detail
             ?
-            <div className="card mb-3">
+            <div className="card mb-3 w-100 overflow-hidden">
                 <div className="row justify-content-between">
                     <div className="col-4">
                         <img className="w-100 h-100" src={detail?.poster_path ? `https://image.tmdb.org/t/p/w500${detail?.poster_path}` : "/logo512.png"} alt="..."/>
                     </div>
                     <div className="col-8">
                         <div className="card-body">
-                            <h5 className="card-title">{detail?.title}</h5>
+                            <h5 className="card-title mb-4">{detail?.title}</h5>
                             <a href={detail?.homepage} className="link-secondary">Visit Official website</a>
-                            <p className="card-text"><strong>Company:</strong> {detail?.production_companies[0]?.name}</p>
-                            <p className="card-text"><strong>Country:</strong> {detail?.production_countries[0]?.name}</p>
-                            <p className="card-text"><strong>Language:</strong> {detail?.spoken_languages[0]?.name}</p>
-                            <p className="card-text"><strong>Date:</strong> {detail?.release_date}</p>
-                            <p className="card-text"><strong>Rating:</strong> <span className="badge bg-info fs-3">{detail?.vote_average}</span></p>
+                            <p className="card-text mb-4 mt-4"><strong>Company:</strong> {detail?.production_companies[0]?.name}</p>
+                            <p className="card-text mb-4"><strong>Country:</strong> {detail?.production_countries[0]?.name}</p>
+                            <p className="card-text mb-4"><strong>Language:</strong> {detail?.spoken_languages[0]?.name}</p>
+                            <p className="card-text mb-4"><strong>Date:</strong> {detail?.release_date}</p>
+                            <p className="card-text mb-4"><strong>Rating:</strong> <span className="badge bg-info fs-3">{detail?.vote_average}</span></p>
                             <p className="card-text"><strong>{detail?.tagline}</strong></p>
                             <p className="card-text">{detail?.overview}</p>
                         </div>
@@ -63,7 +63,7 @@ const SimilarMovies = () =>{
                     <button className="btn btn-primary col-12 m-0" type="button" onClick={getList}>Go Back to Movie List</button>
                 </div>
                 {similar.length ? <h5 className="card-title text-center">Similar Movies</h5> : null}
-                <div class="row cols-3 row-cols-md-6 g-4">
+                <div class="row cols-3 row-cols-md-6 g-4 w-100">
                     <SimilarMovies />
                 </div>
             </div>

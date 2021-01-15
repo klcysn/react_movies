@@ -9,6 +9,7 @@ import App from "./components/App"
 import Navbar from "./components/Navbar"
 import Form from "./components/Form"
 import Comments from "./components/Comments"
+import EditComment from "./components/EditComment"
 
 const ReactApp = () =>{
     return(
@@ -18,6 +19,7 @@ const ReactApp = () =>{
             <Route path="/detail/:id" component={Detail} exact/>
             <Route path = "/message" component={Form} exact />
             <Route path = "/comments" component={Comments} exact />
+            <Route path = "/edit/:id" component={EditComment} exact />
             <Route path="/" component={App}/>
           </Switch>
       </Router>
