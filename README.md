@@ -1,3 +1,3 @@
-Visit Sample website
+Visit Sample website:
 
-klcysn.github.io/react_movies/
+https://klcysn.github.io/react_movies/
