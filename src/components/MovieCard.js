@@ -8,7 +8,7 @@ const MovieCard = ({movie}) =>{
     const [show, setShow] = useState(true)
     const setVisible = () => setShow(s => !s)
     const getDetail = () =>{
-        history.push(`/detail/${current}/${movie.id}`)
+        history.push(`/detail/${current ? current : 1}/${movie.id}`)
     }
     return(
                 <>

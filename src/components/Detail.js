@@ -23,7 +23,7 @@ const SimilarMovies = () =>{
     return(
         similar.map((item)=>{
             return(
-            <div className="col-2 mb-2" onClick={()=>history.push(`/detail/${item.id}`)} style={{cursor:"pointer"}}>
+            <div className="col-2 mb-2" onClick={()=>history.push(`/detail/${current ? current : 1}/${item.id}`)} style={{cursor:"pointer"}}>
                 <div className="card h-100">
                     <img src={item?.poster_path ? `https://image.tmdb.org/t/p/w500${item?.poster_path}` : "/logo512.png"} className="card-img-top" alt="..."/>
                     <div className="card-body">
