@@ -6,7 +6,7 @@ const Navbar = () =>{
             <nav className="navbar navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">Home</Link>
-                    <Link className="navbar-brand" to="/contact">Contact</Link>
+                    <Link className="navbar-brand" to="/message">Comments</Link>
                 </div>
             </nav>
         </>

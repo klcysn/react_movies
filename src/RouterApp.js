@@ -16,7 +16,7 @@ const ReactApp = () =>{
           <Navbar/>
           <Switch>
             <Route path="/detail/:id" component={Detail} exact/>
-            <Route path = "/contact" component={Form} exact />
+            <Route path = "/message" component={Form} exact />
             <Route path = "/comments" component={Comments} exact />
             <Route path="/" component={App}/>
           </Switch>
