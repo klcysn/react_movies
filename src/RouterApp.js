@@ -8,6 +8,7 @@ import Detail from "./components/Detail"
 import App from "./components/App"
 import Navbar from "./components/Navbar"
 import Form from "./components/Form"
+import Comments from "./components/Comments"
 
 const ReactApp = () =>{
     return(
@@ -16,6 +17,7 @@ const ReactApp = () =>{
           <Switch>
             <Route path="/detail/:id" component={Detail} exact/>
             <Route path = "/contact" component={Form} exact />
+            <Route path = "/comments" component={Comments} exact />
             <Route path="/" component={App}/>
           </Switch>
       </Router>
