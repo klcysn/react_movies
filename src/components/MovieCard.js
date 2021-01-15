@@ -16,7 +16,7 @@ const MovieCard = ({movie}) =>{
                         <img className="card-img-top" src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "/logo512.png"} alt="" />
                         <div className="card-body">
                             <h5 className="card-title">{movie?.title}</h5>
-                            <p className="card-text overflow-hidden text-truncate"> {movie?.overview}</p>
+                            <p className="card-text overflow-hidden"> {movie?.overview.slice(0, 150)}...</p>
                             <div className="d-flex justify-content-between align-items-center">
                                 <button type="button" className="btn btn-md btn-outline-danger" onClick={setVisible}>Hide</button>
                                 <h2><span className="badge badge-info">{movie?.vote_average}</span></h2>
