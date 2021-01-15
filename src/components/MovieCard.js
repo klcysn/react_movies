@@ -1,13 +1,14 @@
 import {useState} from "react"
 import axios from "axios"
-import {useHistory} from "react-router-dom"
+import {useHistory, useParams} from "react-router-dom"
 
 const MovieCard = ({movie}) =>{
     const history = useHistory()
+    const {current} = useParams()
     const [show, setShow] = useState(true)
     const setVisible = () => setShow(s => !s)
     const getDetail = () =>{
-        history.push(`/detail/${movie.id}`)
+        history.push(`/detail/${current}/${movie.id}`)
     }
     return(
                 <>

@@ -4,7 +4,7 @@ import {useParams, useHistory} from "react-router-dom"
 
 const Detail = () => {
 const history = useHistory()
-const {id} = useParams()
+const {id, current} = useParams()
 const [detail, setDetail] = useState()
 const [similar, setSimilar] = useState()
 const fetchDetail = async () =>{
@@ -16,7 +16,7 @@ const fetchDetail = async () =>{
 useEffect(()=>{fetchDetail()}, [id])
 
 const getList = () =>{
-    history.push("/")
+    history.push(`/current/${current}`)
 }
 
 const SimilarMovies = () =>{
